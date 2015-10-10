@@ -1,0 +1,34 @@
+{
+  "name": "tafel",
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Routing table built on routington",
+  "license": "MIT",
+  "repository": "bendrucker/tafel",
+  "author": {
+    "name": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "keywords": [
+    "routing",
+    "table",
+    "router",
+    "route",
+    "weakmap"
+  ],
+  "devDependencies": {
+    "tape": "^4.0.0",
+    "standard": "^5.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "assert-equal": "~1.0.0",
+    "routington": "~1.0.3"
+  }
+}
