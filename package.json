@@ -1,7 +1,7 @@
 {
   "name": "tafel",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Routing table built on routington",
   "license": "MIT",
   "repository": "bendrucker/tafel",
