@@ -1,5 +1,6 @@
 'use strict'
 
+var array = require('cast-array')
 var Routington = require('routington')
 var assertEqual = require('assert-equal')
 
@@ -13,12 +14,16 @@ function Table () {
     match: match
   }
 
-  function add (path) {
-    assertEqual(typeof path, 'string')
+  function add (paths) {
+    paths = array(paths)
+    var key = {paths: paths}
 
-    var key = {path: path}
-    var node = router.define(path)[0]
-    node.key = key
+    paths.forEach(function (path) {
+      assertEqual(typeof path, 'string')
+
+      var node = router.define(path)[0]
+      node.key = key
+    })
 
     return key
   }

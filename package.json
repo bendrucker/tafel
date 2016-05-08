@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "assert-equal": "~1.0.0",
+    "cast-array": "^1.0.1",
     "routington": "~1.0.3"
   }
 }
