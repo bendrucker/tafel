@@ -28,6 +28,9 @@ var match1 = table.match('/users')
 var match2 = table.match('/users/123')
 //=> match2.key === user
 //=> match2.params === {id: '123'}
+
+table.path(user, {id: 123})
+//=> /users/123
 ```
 
 ## API
@@ -70,6 +73,30 @@ The same `key` returned by `table.add`.
 Type: `string`
 
 An application path (not a path definition).
+
+#### `table.path(key, [params])` -> `string`
+
+Generates the path for a given route in the same form expected by `table.match` as input.
+
+##### key
+
+*Required*  
+Type: `object`
+
+The route key returned by `route.add`.
+
+#### params
+
+Type: `object`  
+Default: `{}`
+
+Path parameters to interpolate. Each parameter in the URL must be defined.
+
+```js
+var route = table.add({path: '/packages/:name'})
+var path = table.path(route, {name: 'tafel'})
+//=> /packages/tafel
+```
 
 ## License
 

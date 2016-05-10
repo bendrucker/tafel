@@ -3,37 +3,22 @@
 var test = require('tape')
 var Table = require('./')
 
-test(function (t) {
+test('match', function (t) {
   var table = Table()
-  t.deepEqual(table.add('/users/:id'), {paths: ['/users/:id']})
+  t.deepEqual(table.add('/users/:id'), {path: '/users/:id'})
   t.deepEqual(table.match('/users/123'), {
-    key: {paths: ['/users/:id']},
+    key: {path: '/users/:id'},
     params: {id: '123'}
   })
   t.end()
 })
 
-test('multiple paths', function (t) {
+test('path', function (t) {
   var table = Table()
-  var paths = [
-    '/list',
-    '/list/:id/:attribute'
-  ]
-
-  var entry = table.add(paths)
-  t.deepEqual(entry, {paths: paths})
-
-  t.deepEqual(table.match('/list'), {
-    key: {paths: paths},
-    params: {}
-  }, 'first path')
-  t.deepEqual(table.match('/list/123/weight'), {
-    key: {paths: paths},
-    params: {
-      id: '123',
-      attribute: 'weight'
-    }
-  }, 'second path')
-
+  var one = table.add('/package/:name')
+  var all = table.add('/packages')
+  t.equal(table.path(one, {name: 'foo'}), '/package/foo')
+  t.throws(table.path.bind(null, one, {}), /invalid empty url parameter: name/, 'throws when param is missing')
+  t.equal(table.path(all), '/packages')
   t.end()
 })
