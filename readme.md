@@ -1,4 +1,4 @@
-# tafel [![Build Status](https://travis-ci.org/bendrucker/tafel.svg?branch=master)](https://travis-ci.org/bendrucker/tafel)
+# tafel [![Build Status](https://travis-ci.org/bendrucker/tafel.svg?branch=master)](https://travis-ci.org/bendrucker/tafel) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/tafel.svg)](https://greenkeeper.io/)
 
 > Routing table built on [routington](https://github.com/pillarjs/routington)
 
